@@ -253,9 +253,36 @@ python src/training/train_multimodal_clip.py
 
 ---
 
-# Evaluation Metrics
+# Text-Only Fine-Tuning Results
 
-The repository reports: 
+| Model | Accuracy (%) | F1-Macro (%) | Precision (%) | Recall (%) |
+|---|---|---|---|---|
+| mBERT | 78.58 | 78.49 | 78.51 | 78.47 |
+| MuRIL | 80.35 | 80.33 | 80.34 | 80.44 |
+| XLM-RoBERTa | 79.52 | 79.47 | 79.45 | 79.51 |
+| IndicBERTv2 | 81.51 | 81.50 | 81.55 | 81.66 |
+
+---
+
+# Multimodal Fine-Tuning Results (Dropout = 0.3)
+
+## Text + ResNet50 Fusion
+
+| Model | Accuracy (%) | F1-Macro (%) | Precision (%) | Recall (%) |
+|---|---|---|---|---|
+| mBERT + ResNet50 | 88.73 | 88.64 | 88.93 | 88.51 |
+| MuRIL + ResNet50 | 88.47 | 88.41 | 88.49 | 88.36 |
+| XLM-RoBERTa + ResNet50 | 88.76 | 88.68 | 88.87 | 88.59 |
+| IndicBERTv2 + ResNet50 | 89.19 | 89.14 | 89.21 | 89.09 |
+
+## Text + CLIP Fusion
+
+| Model | Accuracy (%) | F1-Macro (%) | Precision (%) | Recall (%) |
+|---|---|---|---|---|
+| mBERT + CLIP | 90.07 | 89.96 | 90.55 | 89.77 |
+| MuRIL + CLIP | 89.61 | 89.53 | 89.80 | 89.40 |
+| XLM-RoBERTa + CLIP | 90.15 | 90.05 | 90.59 | 89.86 |
+| IndicBERTv2 + CLIP | 90.23 | 90.15 | 90.47 | 90.00 |
 
 ---
 
