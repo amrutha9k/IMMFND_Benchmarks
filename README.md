@@ -65,7 +65,7 @@ The current repository release contains:
 - experimental outputs
 - benchmark results
 
-corresponding to the **0.3 dropout configuration**.
+corresponding to the **0.4 dropout configuration**.
 
 Extended ablation studies and best-performing configurations will be released after ongoing evaluations and conference submissions.
 
@@ -264,7 +264,7 @@ python src/training/train_multimodal_clip.py
 
 ---
 
-# Multimodal Fine-Tuning Results (Dropout = 0.3)
+# Multimodal Fine-Tuning Results (Dropout = 0.4)
 
 ## Text + ResNet50 Fusion
 
@@ -294,7 +294,7 @@ The repository currently contains:
 
 - text-only benchmark results
 - multimodal fusion benchmark results
-- dropout 0.3 experimental configurations
+- dropout 0.4 experimental configurations
 
 Additional ablation studies and best-performing configurations will be released later.
 
