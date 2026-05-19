@@ -62,12 +62,8 @@ The multimodal experiments were conducted using multiple dropout configurations:
 The current repository release contains:
 
 - training scripts
-- experimental outputs
 - benchmark results
-
-corresponding to the **0.4 dropout configuration**.
-
-Extended ablation studies and best-performing configurations will be released after ongoing evaluations and conference submissions.
+- architecture of multimodal fine tuning
 
 ---
 
@@ -253,6 +249,12 @@ python src/training/train_multimodal_clip.py
 
 ---
 
+## Architecture
+
+<p align="center">
+  <img src="architecture.png" width="1000">
+</p>
+
 # Text-Only Fine-Tuning Results
 
 | Model | Accuracy (%) | F1-Macro (%) | Precision (%) | Recall (%) |
@@ -264,39 +266,24 @@ python src/training/train_multimodal_clip.py
 
 ---
 
-# Multimodal Fine-Tuning Results (Dropout = 0.4)
+## Multimodal Benchmark Results
 
-## Text + ResNet50 Fusion
+To evaluate the impact of integrating textual and visual information, multilingual transformer encoders were combined with two image backbones: **ResNet-50** and **CLIP ViT-Large**. Experiments were conducted using dropout values of **0.3, 0.4, and 0.5** across all model combinations.
 
-| Model | Accuracy (%) | F1-Macro (%) | Precision (%) | Recall (%) |
-|---|---|---|---|---|
-| mBERT + ResNet50 | 88.73 | 88.64 | 88.93 | 88.51 |
-| MuRIL + ResNet50 | 88.47 | 88.41 | 88.49 | 88.36 |
-| XLM-RoBERTa + ResNet50 | 88.76 | 88.68 | 88.87 | 88.59 |
-| IndicBERTv2 + ResNet50 | 89.19 | 89.14 | 89.21 | 89.09 |
+For each image encoder, the best-performing configuration is reported below.
 
-## Text + CLIP Fusion
+- **CLIP ViT-Large** consistently outperformed ResNet-50 across multimodal experiments, demonstrating the effectiveness of pretrained multimodal representations.
+- The strongest overall performance was achieved by **IndicBERTv2 + CLIP ViT-Large** with a dropout value of **0.3**.
+- Within ResNet-based configurations, **IndicBERTv2 + ResNet50** produced the highest performance among all evaluated ResNet combinations.
 
-| Model | Accuracy (%) | F1-Macro (%) | Precision (%) | Recall (%) |
-|---|---|---|---|---|
-| mBERT + CLIP | 90.07 | 89.96 | 90.55 | 89.77 |
-| MuRIL + CLIP | 89.61 | 89.53 | 89.80 | 89.40 |
-| XLM-RoBERTa + CLIP | 90.15 | 90.05 | 90.59 | 89.86 |
-| IndicBERTv2 + CLIP | 90.23 | 90.15 | 90.47 | 90.00 |
+| Text Encoder | Image Encoder | Dropout | Accuracy | F1-Macro |
+|--------------|--------------|----------|-----------|-----------|
+| IndicBERTv2 | CLIP ViT-Large | 0.3 | **90.24** | **90.14** |
+| IndicBERTv2 | ResNet50 | 0.3 | 89.31 | 89.24 |
 
----
+### Key Observation
 
-# Experimental Results
-
-The benchmark experiments demonstrate strong multilingual fake news detection performance across both textual and multimodal settings.
-
-The repository currently contains:
-
-- text-only benchmark results
-- multimodal fusion benchmark results
-- dropout 0.4 experimental configurations
-
-Additional ablation studies and best-performing configurations will be released later.
+The multimodal framework achieved a substantial improvement over text-only baselines, highlighting the importance of combining visual evidence with multilingual textual representations for fake news detection. The best multimodal configuration achieved approximately **9% improvement** over the strongest text-only baseline.
 
 ---
 
