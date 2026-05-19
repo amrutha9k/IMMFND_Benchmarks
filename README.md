@@ -297,7 +297,7 @@ The multimodal framework achieved a substantial improvement over text-only basel
 - Early stopping
 - Mixed precision training
 - Checkpoint saving
-- Automatic evaluation and CSV export
+- Automatic evaluation
 
 ---
 
