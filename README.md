@@ -252,7 +252,7 @@ python src/training/train_multimodal_clip.py
 ## Architecture
 
 <p align="center">
-  <img src="architecture.png" width="1000">
+  <img src="Multimodal_Finetune_architecure_ResearchPaper.png" width="1000">
 </p>
 
 # Text-Only Fine-Tuning Results
